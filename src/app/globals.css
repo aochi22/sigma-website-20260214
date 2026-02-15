@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+
+  --color-card: #f2f2f2;
+  --color-card-foreground: #111111;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #111111;
+
+  --color-primary: #111111;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #f2f2f2;
+  --color-secondary-foreground: #111111;
+
+  --color-muted: #f2f2f2;
+  --color-muted-foreground: #666666;
+
+  --color-accent: #1a1a1a;
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #111111;
+
+  --color-chart-1: #111111;
+  --color-chart-2: #666666;
+  --color-chart-3: #e5e5e5;
+  --color-chart-4: #f2f2f2;
+  --color-chart-5: #1a1a1a;
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #111111;
+  --color-sidebar-primary: #111111;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #f2f2f2;
+  --color-sidebar-accent-foreground: #111111;
+  --color-sidebar-border: #e5e5e5;
+  --color-sidebar-ring: #111111;
+
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+
+  --font-display: "Inter", "Helvetica", sans-serif;
+  --font-body: "Inter", "Helvetica", sans-serif;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e5e5;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #111111;
+    --card: #f2f2f2;
+    --card-foreground: #111111;
+    --popover: #ffffff;
+    --popover-foreground: #111111;
+    --primary: #111111;
+    --primary-foreground: #ffffff;
+    --secondary: #f2f2f2;
+    --secondary-foreground: #111111;
+    --muted: #f2f2f2;
+    --muted-foreground: #666666;
+    --accent: #1a1a1a;
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #111111;
+    --radius: 0px;
+    --sidebar-background: #ffffff;
+    --sidebar-foreground: #111111;
+    --sidebar-primary: #111111;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #f2f2f2;
+    --sidebar-accent-foreground: #111111;
+    --sidebar-border: #e5e5e5;
+    --sidebar-ring: #111111;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    border-radius: 0 !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  h1, .h1-hero {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h2, .h2-section {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h3, .h3-card {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .earmark {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted-foreground);
+  }
+
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  .industrial-arrow::before {
+    content: "↳";
+    margin-right: 0.5rem;
+  }
+
+  .btn-industrial {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
